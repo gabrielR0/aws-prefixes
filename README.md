@@ -7,3 +7,6 @@ Interogate aws ip prefixes - routing in aws
 `jq '.prefixes[] | select(.region=="eu-central-1" and .service=="S3").ip_prefix' < ip-ranges.json`
 ### exclude ec2 instances in a region
 `jq -r '[.prefixes[] | select(.region=="us-east-1" and .service=="AMAZON").ip_prefix] - [.prefixes[] | select(.region=="us-east-1" and .service=="S3").ip_prefix] | .[]' < ip-ranges.json`
+
+
+source: https://docs.aws.amazon.com/general/latest/gr/aws-ip-ranges.html
